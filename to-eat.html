@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Eat List</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f7f4ee;
+            color: #2a2826;
+            padding: 40px 30px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #5a5856;
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .city-section {
+            margin-bottom: 40px;
+        }
+
+        .city-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0dcd4;
+        }
+
+        .city-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+
+        .city-count {
+            background: #c86850;
+            color: white;
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .restaurant-card {
+            background: white;
+            padding: 15px 18px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .restaurant-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .restaurant-card.completed {
+            opacity: 0.6;
+            background: #f0ede8;
+        }
+
+        .restaurant-card.completed .restaurant-name {
+            text-decoration: line-through;
+        }
+
+        .restaurant-name {
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .restaurant-cuisine {
+            color: #888;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        .completed-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dashed #ccc;
+        }
+
+        .completed-header {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .completed-header::before {
+            content: "✓";
+            color: #7a8c6a;
+        }
+
+        .note {
+            text-align: center;
+            margin-top: 40px;
+            font-style: italic;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .youtube-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #c86850;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .youtube-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>to-eat list</h1>
+    <p class="subtitle">places i need to try</p>
+
+    <div class="container">
+        <!-- NYC -->
+        <div class="city-section">
+            <div class="city-header">
+                <h2 class="city-name">New York City</h2>
+                <span class="city-count">25 spots</span>
+            </div>
+            <div class="restaurant-grid">
+                <a href="https://www.addanyc.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Adda</div>
+                    <div class="restaurant-cuisine">Indian</div>
+                </a>
+                <a href="https://www.yelp.com/biz/east-broadway-mall-new-york" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">East Broadway Mall</div>
+                    <div class="restaurant-cuisine">Dim Sum</div>
+                </a>
+                <a href="https://www.cafelilynyc.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Cafe Lily</div>
+                    <div class="restaurant-cuisine">Korean Uzbek</div>
+                </a>
+                <a href="https://www.tacomahalnyc.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Taco Mahal</div>
+                    <div class="restaurant-cuisine">Butter Chicken Taco</div>
+                </a>
+                <a href="https://www.instagram.com/moonrisebagels/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Moonrise Bagels</div>
+                    <div class="restaurant-cuisine">Stuffed Bagels</div>
+                </a>
+                <a href="https://www.spiralsnyc.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Spirals</div>
+                    <div class="restaurant-cuisine">Cinnamon Rolls</div>
+                </a>
+                <a href="https://www.instagram.com/banhbylauren/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Banh by Lauren</div>
+                    <div class="restaurant-cuisine">Vietnamese American Cafe</div>
+                </a>
+                <a href="https://www.yelp.com/biz/new-world-mall-flushing" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">New World Food Court</div>
+                    <div class="restaurant-cuisine">Food Court</div>
+                </a>
+                <a href="https://www.mamastoo.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Mamas Too</div>
+                    <div class="restaurant-cuisine">Italian</div>
+                </a>
+                <a href="https://www.instagram.com/maryosirishscones/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Mary O's Irish Scones</div>
+                    <div class="restaurant-cuisine">Bakery</div>
+                </a>
+                <a href="https://www.instagram.com/saltylunchlady/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Salty Lunch Lady's</div>
+                    <div class="restaurant-cuisine">Sandwiches</div>
+                </a>
+                <a href="https://www.mimisfroyo.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Mimi's</div>
+                    <div class="restaurant-cuisine">Froyo</div>
+                </a>
+                <a href="https://www.goldenhofnyc.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Golden Hof</div>
+                    <div class="restaurant-cuisine">Korean Fusion Brunch</div>
+                </a>
+                <a href="https://www.eyvalnyc.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Eyval</div>
+                    <div class="restaurant-cuisine">Persian</div>
+                </a>
+                <a href="https://www.angelindiannyc.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Angel</div>
+                    <div class="restaurant-cuisine">Indian</div>
+                </a>
+                <a href="https://www.instagram.com/mommypais/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Mommy Pai's</div>
+                    <div class="restaurant-cuisine">Thai/Chicken Fusion</div>
+                </a>
+                <a href="https://www.instagram.com/spongiescafe/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Spongies Cafe</div>
+                    <div class="restaurant-cuisine">Chinese Bakery</div>
+                </a>
+                <a href="https://www.instagram.com/somedaysbakery/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Somedays Bakery</div>
+                    <div class="restaurant-cuisine">Unique Pastries</div>
+                </a>
+                <a href="https://www.yelp.com/biz/northern-king-dumpling-new-york" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Northern King Dumpling</div>
+                    <div class="restaurant-cuisine">Chinese-Korean Dumplings</div>
+                </a>
+                <a href="https://www.parisibakery.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Parisi</div>
+                    <div class="restaurant-cuisine">Italian Sandwiches</div>
+                </a>
+                <a href="https://www.agiscounter.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Agi's Counter</div>
+                    <div class="restaurant-cuisine">Bakery/Deli</div>
+                </a>
+                <a href="https://www.sofrehnyc.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Sofreh</div>
+                    <div class="restaurant-cuisine">Persian</div>
+                </a>
+                <a href="https://www.hudabistro.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Huda</div>
+                    <div class="restaurant-cuisine">New Levantine Bistro</div>
+                </a>
+                <a href="https://www.nabilasnyc.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Nabila's</div>
+                    <div class="restaurant-cuisine">Middle Eastern</div>
+                </a>
+                <a href="https://www.hernameishannyc.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Her Name is Han</div>
+                    <div class="restaurant-cuisine">Korean</div>
+                </a>
+            </div>
+
+            <div class="completed-section">
+                <div class="completed-header">Already tried</div>
+                <div class="restaurant-grid">
+                    <a href="https://www.thaidiner.com/" target="_blank" class="restaurant-card completed">
+                        <div class="restaurant-name">Thai Diner</div>
+                        <div class="restaurant-cuisine">Thai Fusion</div>
+                    </a>
+                    <a href="https://www.kisanyc.com/" target="_blank" class="restaurant-card completed">
+                        <div class="restaurant-name">Kisa</div>
+                        <div class="restaurant-cuisine">Traditional Korean</div>
+                    </a>
+                    <a href="https://www.instagram.com/winsonbakery/" target="_blank" class="restaurant-card completed">
+                        <div class="restaurant-name">Winson Bakery</div>
+                        <div class="restaurant-cuisine">Taiwanese American Fusion</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SF -->
+        <div class="city-section">
+            <div class="city-header">
+                <h2 class="city-name">San Francisco</h2>
+                <span class="city-count">2 spots</span>
+            </div>
+            <div class="restaurant-grid">
+                <a href="https://www.arsicaultbakery.com/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Arsicault</div>
+                    <div class="restaurant-cuisine">French Bakery</div>
+                </a>
+                <a href="https://www.noburestaurants.com/palo-alto/" target="_blank" class="restaurant-card">
+                    <div class="restaurant-name">Nobu</div>
+                    <div class="restaurant-cuisine">Japanese</div>
+                </a>
+            </div>
+            <p class="note" style="margin-top: 15px; text-align: left;">need more recs!</p>
+        </div>
+
+        <a href="https://www.youtube.com/@carolikestoeat/shorts" target="_blank" class="youtube-link">watch my food reviews on youtube →</a>
+    </div>
+
+    <p class="note">always accepting recommendations!</p>
+</body>
+</html>

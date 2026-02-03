@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Ideas Bank</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #f7f4ee 0%, #e8e4dc 100%);
+            color: #2a2826;
+            padding: 40px 30px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #5a5856;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            background: #fff;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #2a2826;
+            color: #fff;
+            border-color: #2a2826;
+        }
+
+        .ideas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .idea-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            border-left: 4px solid transparent;
+        }
+
+        .idea-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .idea-card.climate { border-left-color: #7a8c6a; }
+        .idea-card.fintech { border-left-color: #6a8494; }
+        .idea-card.consumer { border-left-color: #c86850; }
+        .idea-card.health { border-left-color: #c8a098; }
+        .idea-card.education { border-left-color: #8a7a90; }
+        .idea-card.other { border-left-color: #888; }
+
+        .idea-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .idea-oneliner {
+            font-size: 0.9rem;
+            color: #5a5856;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .idea-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .idea-category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #888;
+            background: #f5f2ec;
+            padding: 4px 10px;
+            border-radius: 10px;
+        }
+
+        .idea-status {
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .idea-status.shower-thought {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .idea-status.researched {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .idea-status.building {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        /* Lightbulb decoration */
+        .lightbulb {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            font-size: 4rem;
+            opacity: 0.15;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #888;
+        }
+
+        .empty-state p {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>startup ideas bank</h1>
+    <p class="subtitle">random shower thoughts & actual research</p>
+
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">all</button>
+        <button class="filter-btn" data-filter="climate">climate</button>
+        <button class="filter-btn" data-filter="fintech">fintech</button>
+        <button class="filter-btn" data-filter="consumer">consumer</button>
+        <button class="filter-btn" data-filter="health">health</button>
+        <button class="filter-btn" data-filter="education">education</button>
+        <button class="filter-btn" data-filter="other">other</button>
+    </div>
+
+    <div class="ideas-grid" id="ideas-grid"></div>
+
+    <div class="lightbulb">💡</div>
+
+    <script src="data.js"></script>
+    <script>
+        const grid = document.getElementById('ideas-grid');
+        let activeFilter = 'all';
+
+        function renderIdeas() {
+            grid.innerHTML = '';
+
+            const filtered = startupIdeasData.ideas.filter(idea =>
+                activeFilter === 'all' || idea.category === activeFilter
+            );
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="empty-state"><p>No ideas in this category yet...</p></div>';
+                return;
+            }
+
+            filtered.forEach(idea => {
+                const el = document.createElement('div');
+                el.className = `idea-card ${idea.category}`;
+                el.innerHTML = `
+                    <div class="idea-title">${idea.title}</div>
+                    <div class="idea-oneliner">${idea.oneLiner}</div>
+                    <div class="idea-meta">
+                        <span class="idea-category">${idea.category}</span>
+                        <span class="idea-status ${idea.status.replace(' ', '-')}">${idea.status}</span>
+                    </div>
+                `;
+                grid.appendChild(el);
+            });
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeFilter = btn.dataset.filter;
+                renderIdeas();
+            });
+        });
+
+        renderIdeas();
+    </script>
+</body>
+</html>

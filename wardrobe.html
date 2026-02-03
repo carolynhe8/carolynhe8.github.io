@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Wardrobe</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f7f4ee;
+            color: #2a2826;
+            padding: 40px 30px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #5a5856;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            background: #fff;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #2a2826;
+            color: #fff;
+            border-color: #2a2826;
+        }
+
+        .filter-btn.wishlist { border-color: #c86850; color: #c86850; }
+        .filter-btn.wishlist:hover, .filter-btn.wishlist.active {
+            background: #c86850;
+            color: #fff;
+        }
+
+        .filter-btn.owned { border-color: #7a8c6a; color: #7a8c6a; }
+        .filter-btn.owned:hover, .filter-btn.owned.active {
+            background: #7a8c6a;
+            color: #fff;
+        }
+
+        .wardrobe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .wardrobe-item {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+        }
+
+        .wardrobe-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .wardrobe-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .item-info {
+            padding: 15px;
+        }
+
+        .item-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .item-category {
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .item-notes {
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .status-badge.owned {
+            background: rgba(122, 140, 106, 0.9);
+            color: #fff;
+        }
+
+        .status-badge.wishlist {
+            background: rgba(200, 104, 80, 0.9);
+            color: #fff;
+        }
+
+        /* Closet rod decoration */
+        .closet-rod {
+            width: 80%;
+            max-width: 600px;
+            height: 8px;
+            background: linear-gradient(to bottom, #c4b8a8, #a89888);
+            border-radius: 4px;
+            margin: 0 auto 40px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
+
+        .hanger-icon {
+            width: 30px;
+            height: 20px;
+            margin: 0 auto -5px;
+            border: 3px solid #888;
+            border-bottom: none;
+            border-radius: 15px 15px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="hanger-icon"></div>
+    <div class="closet-rod"></div>
+
+    <h1>virtual wardrobe</h1>
+    <p class="subtitle">my thrift finds & wishlist</p>
+
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">all</button>
+        <button class="filter-btn" data-filter="tops">tops</button>
+        <button class="filter-btn" data-filter="bottoms">bottoms</button>
+        <button class="filter-btn" data-filter="dresses">dresses</button>
+        <button class="filter-btn" data-filter="outerwear">outerwear</button>
+        <button class="filter-btn" data-filter="accessories">accessories</button>
+        <button class="filter-btn" data-filter="shoes">shoes</button>
+        <span style="width: 20px;"></span>
+        <button class="filter-btn owned" data-status="owned">owned</button>
+        <button class="filter-btn wishlist" data-status="wishlist">wishlist</button>
+    </div>
+
+    <div class="wardrobe-grid" id="wardrobe-grid"></div>
+
+    <script src="data.js"></script>
+    <script>
+        const grid = document.getElementById('wardrobe-grid');
+        let activeFilter = 'all';
+        let activeStatus = null;
+
+        function renderItems() {
+            grid.innerHTML = '';
+
+            wardrobeData.items.forEach(item => {
+                if (activeFilter !== 'all' && item.category !== activeFilter) return;
+                if (activeStatus && item.status !== activeStatus) return;
+
+                const el = document.createElement('div');
+                el.className = 'wardrobe-item';
+                el.innerHTML = `
+                    <span class="status-badge ${item.status}">${item.status}</span>
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="item-info">
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-category">${item.category}</div>
+                        ${item.notes ? `<div class="item-notes">"${item.notes}"</div>` : ''}
+                    </div>
+                `;
+                grid.appendChild(el);
+            });
+        }
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeFilter = btn.dataset.filter;
+                renderItems();
+            });
+        });
+
+        document.querySelectorAll('.filter-btn[data-status]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.classList.contains('active')) {
+                    btn.classList.remove('active');
+                    activeStatus = null;
+                } else {
+                    document.querySelectorAll('.filter-btn[data-status]').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeStatus = btn.dataset.status;
+                }
+                renderItems();
+            });
+        });
+
+        renderItems();
+    </script>
+</body>
+</html>

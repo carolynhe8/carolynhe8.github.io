@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Artists</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #1a1a1a;
+            color: #f5f5f5;
+            padding: 40px 30px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .tier-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tier-section {
+            margin-bottom: 35px;
+        }
+
+        .tier-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        .tier-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .tier-badge.s { background: #ff7676; }
+        .tier-badge.a { background: #ffb86b; color: #333; }
+        .tier-badge.b { background: #6bcb77; }
+        .tier-badge.c { background: #74b9ff; }
+
+        .tier-title {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #aaa;
+        }
+
+        .artists-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-start;
+        }
+
+        .artist-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .artist-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .artist-item:hover .cd-disc {
+            animation-play-state: running;
+        }
+
+        .cd-case {
+            width: 70px;
+            height: 70px;
+            position: relative;
+        }
+
+        .cd-disc {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #222 0%, #444 30%, #222 50%, #444 70%, #222 100%);
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            animation: spin 4s linear infinite;
+            animation-play-state: paused;
+        }
+
+        .cd-disc::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            border: 2px solid #333;
+        }
+
+        .cd-disc::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border-radius: 50%;
+            background: repeating-radial-gradient(
+                circle at center,
+                transparent 0px,
+                rgba(255,255,255,0.05) 1px,
+                transparent 2px
+            );
+        }
+
+        .cd-shine {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            background: linear-gradient(
+                135deg,
+                transparent 0%,
+                rgba(255,255,255,0.1) 45%,
+                rgba(255,255,255,0.2) 50%,
+                rgba(255,255,255,0.1) 55%,
+                transparent 100%
+            );
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .artist-name {
+            font-size: 0.75rem;
+            text-align: center;
+            max-width: 80px;
+            color: #ccc;
+            line-height: 1.2;
+        }
+
+        .artist-item:hover .artist-name {
+            color: #fff;
+        }
+
+        /* Vinyl decoration */
+        .vinyl-decor {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #111 0%, #333 50%, #111 100%);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            opacity: 0.2;
+            animation: spin 20s linear infinite;
+        }
+
+        .vinyl-decor::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #c86850;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.s { background: #ff7676; }
+        .legend-dot.a { background: #ffb86b; }
+        .legend-dot.b { background: #6bcb77; }
+        .legend-dot.c { background: #74b9ff; }
+
+        @media (max-width: 600px) {
+            .artists-grid {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>favorite artists</h1>
+    <p class="subtitle">hover to spin the cds</p>
+
+    <div class="legend">
+        <div class="legend-item"><span class="legend-dot s"></span> obsessed</div>
+        <div class="legend-item"><span class="legend-dot a"></span> love</div>
+        <div class="legend-item"><span class="legend-dot b"></span> bands</div>
+        <div class="legend-item"><span class="legend-dot c"></span> instrumental</div>
+    </div>
+
+    <div class="tier-list">
+        <!-- Tier 1 - Obsessed -->
+        <div class="tier-section">
+            <div class="tier-header">
+                <div class="tier-badge s">S</div>
+                <span class="tier-title">can't stop listening</span>
+            </div>
+            <div class="artists-grid" id="tier-s"></div>
+        </div>
+
+        <!-- Tier 2 - Love -->
+        <div class="tier-section">
+            <div class="tier-header">
+                <div class="tier-badge a">A</div>
+                <span class="tier-title">on repeat</span>
+            </div>
+            <div class="artists-grid" id="tier-a"></div>
+        </div>
+
+        <!-- Bands -->
+        <div class="tier-section">
+            <div class="tier-header">
+                <div class="tier-badge b">B</div>
+                <span class="tier-title">favorite bands</span>
+            </div>
+            <div class="artists-grid" id="tier-b"></div>
+        </div>
+
+        <!-- Instrumental -->
+        <div class="tier-section">
+            <div class="tier-header">
+                <div class="tier-badge c">I</div>
+                <span class="tier-title">instrumental</span>
+            </div>
+            <div class="artists-grid" id="tier-c"></div>
+        </div>
+    </div>
+
+    <div class="vinyl-decor"></div>
+
+    <script>
+        const artistData = {
+            s: [
+                "Lorde", "Sarah Kinsley", "Suki Waterhouse", "Maude Latour"
+            ],
+            a: [
+                "Rachel Chinouriri", "Caroline Polachek", "Devon Again", "Chloe Qisha",
+                "Remi Wolf", "Troye Sivan", "Charli xcx", "Clairo", "The Japanese House",
+                "Ella Jane", "BORNS", "BENEE", "Maggie Rogers", "Dora Jar", "Mitski",
+                "Addison Rae", "ELIO", "Dominic Fike", "Del Water Gap", "Jelani Aryeh",
+                "Weyes Blood", "Faye Webster", "Magdalena Bay", "Djo", "Claire Rosinkranz"
+            ],
+            b: [
+                "Wallows", "BETWEEN FRIENDS", "Blusher", "The Marias", "COIN",
+                "Alvvays", "Royel Otis", "The Backseat Lovers"
+            ],
+            c: [
+                "Trevor Kowalski", "Abel Korzeniowski", "Franz Gordon"
+            ]
+        };
+
+        function createArtistElement(name) {
+            return `
+                <div class="artist-item">
+                    <div class="cd-case">
+                        <div class="cd-disc">
+                            <div class="cd-shine"></div>
+                        </div>
+                    </div>
+                    <div class="artist-name">${name}</div>
+                </div>
+            `;
+        }
+
+        document.getElementById('tier-s').innerHTML = artistData.s.map(createArtistElement).join('');
+        document.getElementById('tier-a').innerHTML = artistData.a.map(createArtistElement).join('');
+        document.getElementById('tier-b').innerHTML = artistData.b.map(createArtistElement).join('');
+        document.getElementById('tier-c').innerHTML = artistData.c.map(createArtistElement).join('');
+    </script>
+</body>
+</html>

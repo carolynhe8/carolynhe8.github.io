@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Tier Rankings</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f7f4ee;
+            color: #2a2826;
+            padding: 40px 30px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #5a5856;
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .tier-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tier-row {
+            display: flex;
+            margin-bottom: 10px;
+            min-height: 70px;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .tier-label {
+            width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .tier-label.s { background: #ff7676; color: #fff; }
+        .tier-label.a { background: #ffb86b; color: #fff; }
+        .tier-label.b { background: #ffd93d; color: #333; }
+        .tier-label.c { background: #6bcb77; color: #fff; }
+        .tier-label.d { background: #74b9ff; color: #fff; }
+
+        .tier-content {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 12px 15px;
+            align-items: center;
+        }
+
+        .class-item {
+            background: #f5f2ec;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: default;
+        }
+
+        .class-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .class-item .code {
+            color: #888;
+            font-size: 0.75rem;
+            margin-left: 5px;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #5a5856;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        .legend-dot.s { background: #ff7676; }
+        .legend-dot.a { background: #ffb86b; }
+        .legend-dot.b { background: #ffd93d; }
+        .legend-dot.c { background: #6bcb77; }
+        .legend-dot.d { background: #74b9ff; }
+
+        .note {
+            text-align: center;
+            margin-top: 30px;
+            font-style: italic;
+            color: #888;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>class tier rankings</h1>
+    <p class="subtitle">stanford courses, ranked by vibes</p>
+
+    <div class="legend">
+        <div class="legend-item"><span class="legend-dot s"></span> life-changing</div>
+        <div class="legend-item"><span class="legend-dot a"></span> loved it</div>
+        <div class="legend-item"><span class="legend-dot b"></span> solid</div>
+        <div class="legend-item"><span class="legend-dot c"></span> it was fine</div>
+        <div class="legend-item"><span class="legend-dot d"></span> survived</div>
+    </div>
+
+    <div class="tier-list" id="tier-list"></div>
+
+    <p class="note">updated quarterly based on vibes & hindsight</p>
+
+    <script>
+        // Edit your class rankings here!
+        const classRankings = {
+            S: [
+                { name: "Stanford Climate Ventures", code: "ENERGY 203" },
+                { name: "Programming Abstractions", code: "CS 106B" },
+                { name: "Power Yoga!", code: "" },
+            ],
+            A: [
+                { name: "Linear Algebra", code: "MATH 51" },
+                { name: "Financing Climate Solutions", code: "SUSTAIN 170B" },
+                { name: "Principles of Data Science", code: "DATASCI 112" },
+                { name: "Sustainable Adaptation", code: "ESS 14N" },
+            ],
+            B: [
+                { name: "Multivariable Calculus", code: "MATH 52" },
+                { name: "Principles of Economics", code: "ECON 1" },
+            ],
+            C: [
+                // Add classes here
+            ],
+            D: [
+                // Add classes here
+            ],
+        };
+
+        const tierList = document.getElementById('tier-list');
+        const tiers = ['S', 'A', 'B', 'C', 'D'];
+
+        tiers.forEach(tier => {
+            const classes = classRankings[tier] || [];
+
+            const row = document.createElement('div');
+            row.className = 'tier-row';
+
+            row.innerHTML = `
+                <div class="tier-label ${tier.toLowerCase()}">${tier}</div>
+                <div class="tier-content">
+                    ${classes.length > 0
+                        ? classes.map(c => `
+                            <div class="class-item">
+                                ${c.name}
+                                ${c.code ? `<span class="code">${c.code}</span>` : ''}
+                            </div>
+                        `).join('')
+                        : '<span style="color: #ccc; font-style: italic; font-size: 0.8rem;">none yet!</span>'
+                    }
+                </div>
+            `;
+
+            tierList.appendChild(row);
+        });
+    </script>
+</body>
+</html>

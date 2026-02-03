@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carolyn He | The Comings and Goings of a Constant Wanderer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Scrapbook Decorations -->
+    <div class="scrapbook-decor photo-1"></div>
+    <div class="scrapbook-decor photo-2"></div>
+    <div class="scrapbook-decor photo-3"></div>
+    <div class="scrapbook-decor photo-4"></div>
+    <div class="scrapbook-decor photo-5"></div>
+    <div class="scrapbook-decor photo-6"></div>
+    <div class="scrapbook-decor tape-1"></div>
+    <div class="scrapbook-decor tape-2"></div>
+
+    <!-- Opening Animation Overlay -->
+    <div id="intro-overlay">
+        <div id="photo-scatter"></div>
+        <div id="tagline">the comings and goings of a constant wanderer</div>
+    </div>
+
+    <!-- Background Collage Elements -->
+    <div class="corner-photo top-left"></div>
+    <div class="corner-photo top-right"></div>
+    <div class="corner-photo bottom-left"></div>
+    <div class="corner-photo bottom-right"></div>
+    <div class="corner-photo mid-left"></div>
+    <div class="corner-photo mid-right"></div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <header>
+            <div class="header-content">
+                <img src="images/profile.png" alt="Carolyn" class="profile-pic">
+                <div class="header-text">
+                    <h1>carolyn he</h1>
+                    <p class="subtitle">the comings and goings of a constant wanderer</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Category Buttons -->
+        <nav id="main-categories">
+            <button class="category-btn" data-category="education">education</button>
+            <button class="category-btn" data-category="communities">communities</button>
+            <button class="category-btn" data-category="experience">experience</button>
+            <button class="category-btn" data-category="thoughts">thoughts</button>
+            <button class="category-btn" data-category="about">about me</button>
+            <button class="category-btn whimsical" data-category="whimsical">wander</button>
+        </nav>
+
+        <!-- The Wall - Drop Zone -->
+        <section id="the-wall">
+            <div id="drop-zone">
+                <!-- Add Note Button -->
+                <button id="add-note-btn" title="add a note">+</button>
+            </div>
+        </section>
+
+        <!-- Card Deck -->
+        <section id="card-deck">
+            <div class="deck-header">
+                <div>
+                    <h2>explore</h2>
+                    <p class="deck-hint">drag cards onto the board or click to explore</p>
+                </div>
+                <button id="shuffle-btn">shuffle</button>
+            </div>
+            <div id="cards-container"></div>
+        </section>
+
+        <!-- Category Modals -->
+        <div id="modal-overlay" class="hidden">
+            <div id="modal-content">
+                <button id="modal-close">&times;</button>
+                <div id="modal-body"></div>
+            </div>
+        </div>
+
+        <!-- Sub-page Modal (fullscreen) -->
+        <div id="subpage-overlay" class="hidden">
+            <div id="subpage-content">
+                <button id="subpage-close">&times;</button>
+                <iframe id="subpage-frame" src=""></iframe>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="socials">
+                <a href="https://www.linkedin.com/in/carolyn-he/" target="_blank" class="social-link">linkedin</a>
+                <a href="https://carolynhe.substack.com/" target="_blank" class="social-link">substack</a>
+                <a href="https://www.youtube.com/@carolikestoeat/shorts" target="_blank" class="social-link">youtube</a>
+                <a href="https://open.spotify.com/show/7pbhjFLN3jm8YWYTdMv2Kc" target="_blank" class="social-link">podcast</a>
+            </div>
+            <a href="https://calendly.com/hcarolyn" target="_blank" class="calendly-btn">book a chat</a>
+            <p class="copyright">&copy; 2026 carolyn he</p>
+        </footer>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
