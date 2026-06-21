@@ -438,9 +438,9 @@ const cardsData = [
     { id: 21, title: "peak sustainability ventures", category: "experience", type: "story",
       image: "images/Photos-3-002/DSC03540.JPG",
       content: `
-        <p>Investment Analyst Intern evaluating early-stage emerging market investments across energy, water, food systems, and climate verticals.</p>
-        <p>Built sector theses and market maps across 100+ startups, investors, and ecosystem players.</p>
-        <p><em>Mumbai, India | August 2026 – October 2026</em></p>
+        <p>Investment Analyst Intern evaluating early-stage emerging market investments across energy, water, food, and climate.</p>
+        <p>Built sector theses and market maps across 100+ startups and investors.</p>
+        <p><em>Mumbai, India | August – October 2026</em></p>
       `
     },
 
