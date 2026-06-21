@@ -436,7 +436,7 @@ const cardsData = [
     },
 
     { id: 21, title: "peak sustainability ventures", category: "experience", type: "story",
-      image: "images/Photos-3-002/DSC03540.JPG",
+      image: "images/Photos-3-002/peak.jpg",
       content: `
         <p>Investment Analyst Intern evaluating early-stage emerging market investments across energy, water, food, and climate.</p>
         <p>Built sector theses and market maps across 100+ startups and investors.</p>
@@ -445,7 +445,7 @@ const cardsData = [
     },
 
     { id: 22, title: "wwf nature finance", category: "experience", type: "story",
-      image: "images/Photos-3-002/DSC_0018.JPG",
+      image: "images/Photos-3-002/wwf.jpg",
       content: `
         <p>Investment Intern executing diligence on early-stage nature-based ventures including Dirigo (seaweed).</p>
         <p>Supported WWF Impact's mobilization of $100M+ in equity investments across 50 early-stage companies by 2030.</p>
@@ -454,7 +454,7 @@ const cardsData = [
     },
 
     { id: 23, title: "newlab", category: "experience", type: "story",
-      image: "images/Photos-3-002/20250630_011136-b3da.jpg",
+      image: "images/Photos-3-002/newlab.JPG",
       content: `
         <p>Data, Product, & Strategy Intern building centralized startup intelligence infrastructure across HubSpot, Airtable, PitchBook, and Harmonic.</p>
         <p>Engineered Python/SQL data models reconciling 800–900 companies for venture strategy.</p>
@@ -463,7 +463,7 @@ const cardsData = [
     },
 
     { id: 26, title: "aera vc", category: "experience", type: "story",
-      image: "images/Photos-3-002/DSC_0298.JPG",
+      image: "images/Photos-3-002/aera.JPEG",
       content: `
         <p>Venture Analyst conducting founder diligence for Emerald Battery Labs, Orbital, and Cecilia.</p>
         <p>Built investment memos, TAM/SAM models, and competitive analyses across $100M resilience, industrial systems, and AI fund.</p>
