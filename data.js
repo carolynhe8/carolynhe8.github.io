@@ -462,24 +462,6 @@ const cardsData = [
       `
     },
 
-    { id: 24, title: "hunt alcott lab", category: "experience", type: "story",
-      image: "images/Photos-3-002/IMG_5376.jpeg",
-      content: `
-        <p>Environmental Economics Research Assistant conducting structural IO demand estimation for Chinese EVs using BLP models at Stanford's SIEPR.</p>
-        <p>Coded product-market data pipelines and robustness analyses for automobile market counterfactuals.</p>
-        <p><em>Stanford CA | June 2026 – Present</em></p>
-      `
-    },
-
-    { id: 25, title: "stanford gsb ecopreneurship", category: "experience", type: "story",
-      image: "images/Photos-3-002/ConfettiSideWall-20250926200125181_print.jpg",
-      content: `
-        <p>Ecopreneurship Intern analyzing Stanford's climate venture ecosystem — tracking alumni startups, funding trajectories, and program impact metrics.</p>
-        <p>Supported Ecopreneurship resource strategy and sustainability entrepreneurship programming.</p>
-        <p><em>Stanford CA | April 2026 – June 2026</em></p>
-      `
-    },
-
     { id: 26, title: "aera vc", category: "experience", type: "story",
       image: "images/Photos-3-002/DSC_0298.JPG",
       content: `
@@ -498,14 +480,6 @@ const cardsData = [
       `
     },
 
-    { id: 28, title: "hyfin", category: "communities", type: "story",
-      image: "images/Photos-3-002/DSC_0713.JPG",
-      content: `
-        <p>Project Lead & VP, Energy Foundry at Hyfin (Stanford Energy Club), advancing a climate finance platform targeting $1T in clean energy asset mobilization.</p>
-        <p>Led 4 global workstreams focused on EV blended-finance programs in SE Asia.</p>
-        <p><em>January 2026 – Present</em></p>
-      `
-    },
 
     // ===== COMMUNITIES CARDS =====
     { id: 16, title: "a sustainable future", category: "communities", type: "link",
