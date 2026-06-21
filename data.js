@@ -70,7 +70,7 @@ const categoryContent = {
                 <p>B.S. Data Science (Quantitative Finance Track), M.S. Management Science & Engineering</p>
                 <p>Minor: Energy Science & Engineering | GPA: 4.065</p>
                 <br>
-                <p><strong>Coursework:</strong> Programming Abstractions, Linear Algebra, Multivariable Calculus, Differential Equations, Linear Algebra & Matrix Theory, Principles of Data Science, Principles of Economics, Stanford Climate Ventures, Financing Sustainability Solutions, Understand Energy, Conservation Photography, Integrative Design & Entrepreneurship for Sustainability</p>
+                <p><strong>Coursework:</strong> Principles of Data Science, Differential Equations, Principles of Economics, Stanford Climate Ventures, Financing Sustainability Solutions, Understand Energy, Integrative Design & Entrepreneurship for Sustainability</p>
             </div>
         `
     },
