@@ -67,10 +67,10 @@ const categoryContent = {
             <div class="edu-item">
                 <h4>Stanford University</h4>
                 <p><strong>September 2025 – June 2028 (expected)</strong></p>
-                <p>B.S. Data Science (Quantitative Finance Track), B.S. Management Science & Engineering</p>
-                <p>Minor: Earth Systems | GPA: 4.056</p>
+                <p>B.S. Data Science (Quantitative Finance Track), M.S. Management Science & Engineering</p>
+                <p>Minor: Energy Science & Engineering | GPA: 4.056</p>
                 <br>
-                <p><strong>Coursework:</strong> Stanford Climate Ventures, Programming Abstractions, Linear Algebra, Multivariable Calculus, Financing Climate Solutions, Principles of Data Science, Sustainable Adaptation, Principles of Economics</p>
+                <p><strong>Coursework:</strong> Programming Abstractions, Linear Algebra, Sustainable Adaptation, Entrepreneurial Thought Leaders' Seminar, Multivariable Calculus, Principles of Economics, Chemistry in the Kitchen, How to Learn Mathematics</p>
             </div>
         `
     },
@@ -351,8 +351,16 @@ const cardsData = [
       content: `
         <p>Yes, I'm that person who tracks steps religiously.</p>
         <p><strong>Daily goal:</strong> 10,000 steps</p>
-        <p><strong>Current streak:</strong> 47 days</p>
-        <p><strong>Best month:</strong> October 2025 (avg 14,200/day)</p>
+        <p><strong>Personal best:</strong> 36,743 steps (May 17, 2026)</p>
+        <br>
+        <p><strong>2026 monthly totals:</strong></p>
+        <ul>
+          <li>May: 654,918 (avg ~21,126/day)</li>
+          <li>April: 559,222 (avg ~18,641/day)</li>
+          <li>March: 603,368 (avg ~19,463/day)</li>
+          <li>February: 443,798 (avg ~15,850/day)</li>
+          <li>January: 389,197 (avg ~12,554/day)</li>
+        </ul>
       `
     },
 
@@ -427,6 +435,78 @@ const cardsData = [
       `
     },
 
+    { id: 21, title: "peak sustainability ventures", category: "experience", type: "story",
+      image: "images/Photos-3-002/DSC03540.JPG",
+      content: `
+        <p>Investment Analyst Intern evaluating early-stage emerging market investments across energy, water, food systems, and climate verticals.</p>
+        <p>Built sector theses and market maps across 100+ startups, investors, and ecosystem players.</p>
+        <p><em>Mumbai, India | August 2026 – October 2026</em></p>
+      `
+    },
+
+    { id: 22, title: "wwf nature finance", category: "experience", type: "story",
+      image: "images/Photos-3-002/DSC_0018.JPG",
+      content: `
+        <p>Investment Intern executing diligence on early-stage nature-based ventures including Dirigo (seaweed).</p>
+        <p>Supported WWF Impact's mobilization of $100M+ in equity investments across 50 early-stage companies by 2030.</p>
+        <p><em>Washington DC / Hybrid | June 2026 – August 2026</em></p>
+      `
+    },
+
+    { id: 23, title: "newlab", category: "experience", type: "story",
+      image: "images/Photos-3-002/20250630_011136-b3da.jpg",
+      content: `
+        <p>Data, Product, & Strategy Intern building centralized startup intelligence infrastructure across HubSpot, Airtable, PitchBook, and Harmonic.</p>
+        <p>Engineered Python/SQL data models reconciling 800–900 companies for venture strategy.</p>
+        <p><em>New York NY / Hybrid | June 2026 – August 2026</em></p>
+      `
+    },
+
+    { id: 24, title: "hunt alcott lab", category: "experience", type: "story",
+      image: "images/Photos-3-002/IMG_5376.jpeg",
+      content: `
+        <p>Environmental Economics Research Assistant conducting structural IO demand estimation for Chinese EVs using BLP models at Stanford's SIEPR.</p>
+        <p>Coded product-market data pipelines and robustness analyses for automobile market counterfactuals.</p>
+        <p><em>Stanford CA | June 2026 – Present</em></p>
+      `
+    },
+
+    { id: 25, title: "stanford gsb ecopreneurship", category: "experience", type: "story",
+      image: "images/Photos-3-002/ConfettiSideWall-20250926200125181_print.jpg",
+      content: `
+        <p>Ecopreneurship Intern analyzing Stanford's climate venture ecosystem — tracking alumni startups, funding trajectories, and program impact metrics.</p>
+        <p>Supported Ecopreneurship resource strategy and sustainability entrepreneurship programming.</p>
+        <p><em>Stanford CA | April 2026 – June 2026</em></p>
+      `
+    },
+
+    { id: 26, title: "aera vc", category: "experience", type: "story",
+      image: "images/Photos-3-002/DSC_0298.JPG",
+      content: `
+        <p>Venture Analyst conducting founder diligence for Emerald Battery Labs, Orbital, and Cecilia.</p>
+        <p>Built investment memos, TAM/SAM models, and competitive analyses across $100M resilience, industrial systems, and AI fund.</p>
+        <p><em>Remote | March 2026 – Present</em></p>
+      `
+    },
+
+    { id: 27, title: "university climate ventures", category: "communities", type: "story",
+      image: "images/Photos-3-002/PXL_20250619_181129503.jpg",
+      content: `
+        <p>Co-founded climate-tech venture platform across 4 universities.</p>
+        <p>Convened 100+ founders, researchers, and investors, facilitating fundraising and accelerator placements (a16z Speedrun, Keel).</p>
+        <p><em>January 2026 – Present</em></p>
+      `
+    },
+
+    { id: 28, title: "hyfin", category: "communities", type: "story",
+      image: "images/Photos-3-002/DSC_0713.JPG",
+      content: `
+        <p>Project Lead & VP, Energy Foundry at Hyfin (Stanford Energy Club), advancing a climate finance platform targeting $1T in clean energy asset mobilization.</p>
+        <p>Led 4 global workstreams focused on EV blended-finance programs in SE Asia.</p>
+        <p><em>January 2026 – Present</em></p>
+      `
+    },
+
     // ===== COMMUNITIES CARDS =====
     { id: 16, title: "a sustainable future", category: "communities", type: "link",
       link: "https://www.pointsoflight.org/awards/the-student-turning-data-into-action-and-revolutionizing-sustainability-in-schools/",
@@ -462,8 +542,8 @@ const cardsData = [
       image: "images/Photos-3-002/IMG_5376.jpeg",
       content: `
         <p><strong>B.S. Data Science</strong> (Quantitative Finance Track)</p>
-        <p><strong>B.S. Management Science & Engineering</strong></p>
-        <p><strong>Minor:</strong> Earth Systems</p>
+        <p><strong>M.S. Management Science & Engineering</strong></p>
+        <p><strong>Minor:</strong> Energy Science & Engineering</p>
         <p><strong>GPA:</strong> 4.056</p>
         <p><em>Go Cardinal!</em></p>
       `
