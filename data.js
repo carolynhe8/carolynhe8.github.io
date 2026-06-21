@@ -138,19 +138,55 @@ const categoryContent = {
             <h3>experience</h3>
 
             <div class="exp-item">
+                <h4>Investment Analyst Intern | Peak Sustainability Ventures</h4>
+                <p><em>Mumbai, India | August 2026 – October 2026</em></p>
+                <p>Evaluated early-stage emerging market investments across 4 verticals (energy, water, food systems, climate); built sector theses and market maps to support sourcing strategy.</p>
+            </div>
+
+            <div class="exp-item" style="margin-top: 20px;">
+                <h4>Investment Intern | World Wildlife Fund (Nature Finance Investing)</h4>
+                <p><em>Washington DC / Hybrid | June 2026 – August 2026</em></p>
+                <p>Executed investment diligence on early-stage nature-based ventures; conducted sector analyses across aquaculture and blue economy to support $100M+ mobilization across 50 companies by 2030.</p>
+            </div>
+
+            <div class="exp-item" style="margin-top: 20px;">
+                <h4>Data, Product, & Strategy Intern | Newlab</h4>
+                <p><em>New York NY / Hybrid | June 2026 – August 2026</em></p>
+                <p>Built startup intelligence infrastructure across HubSpot, Airtable, PitchBook, and Harmonic; engineered Python/SQL data models reconciling 800–900 companies to surface ecosystem insights for venture strategy.</p>
+            </div>
+
+            <div class="exp-item" style="margin-top: 20px;">
+                <h4>Environmental Economics Research Assistant | Hunt Alcott Lab (SIEPR)</h4>
+                <p><em>Stanford CA / Remote | June 2026 – Present</em></p>
+                <p>Conducted computational research in structural IO demand estimation for Chinese EVs using BLP models; coded product-market data pipelines and robustness analyses for automobile market counterfactuals.</p>
+            </div>
+
+            <div class="exp-item" style="margin-top: 20px;">
+                <h4>Ecopreneurship Intern | Stanford Graduate School of Business</h4>
+                <p><em>Stanford CA | April 2026 – June 2026</em></p>
+                <p>Analyzed Stanford climate venture ecosystem by tracking alumni startups, funding trajectories, and program impact metrics to support Ecopreneurship resource strategy.</p>
+            </div>
+
+            <div class="exp-item" style="margin-top: 20px;">
+                <h4>Venture Analyst | Aera VC</h4>
+                <p><em>Remote | March 2026 – Present</em></p>
+                <p>Conducted founder diligence for Emerald Battery Labs, Orbital, and Cecilia; built investment memos, TAM/SAM models, and competitive analyses across $100M resilience, industrial systems, and AI fund.</p>
+            </div>
+
+            <div class="exp-item" style="margin-top: 20px;">
                 <h4>Market Discovery & Commercialization Analyst | E-Flex (WE3 Lab)</h4>
-                <p><em>Stanford CA | January 2026 – Present</em></p>
+                <p><em>Stanford CA | January 2026 – April 2026</em></p>
                 <p>Leading commercialization for utility-scale energy-flexibility platform. Conducted 34 asset owner interviews across 6 states; analyzed 118K operational records to size $410M TAM.</p>
             </div>
 
             <div class="exp-item" style="margin-top: 20px;">
                 <h4>Investment Analyst | Valo Ventures</h4>
-                <p><em>San Francisco CA | January 2026 – Present</em></p>
+                <p><em>San Francisco CA | January 2026 – April 2026</em></p>
                 <p>Exit and value-maximization analysis across 18 portfolio companies. Researched 17 M&A precedents totaling $13.4B to benchmark valuations.</p>
             </div>
 
             <div class="exp-item" style="margin-top: 20px;">
-                <h4>ESG Market Analyst | Etho Capital</h4>
+                <h4>ESG Market Analyst (Etho Fellow) | Etho Capital</h4>
                 <p><em>San Francisco CA | October 2025 – March 2026</em></p>
                 <p>Built ESG analytics across 2.14M datapoints, 12 climate indices, quantifying 31 MtCO₂e climate impact.</p>
             </div>
@@ -162,7 +198,7 @@ const categoryContent = {
             </div>
 
             <div class="exp-item" style="margin-top: 20px;">
-                <h4>Science & Research Intern | NJ Dept of Environmental Protection</h4>
+                <h4>Environmental Science & Research Intern | NJ Department of Environmental Protection</h4>
                 <p><em>Trenton NJ | August 2025 – September 2025</em></p>
                 <p>Conducted LCAs for urban turf projects; developed ArcGIS contamination tools and QA'd PFAS datasets (10K+ records).</p>
             </div>
@@ -171,6 +207,32 @@ const categoryContent = {
                 <h4>Data Analytics Intern | US Department of Education</h4>
                 <p><em>September 2024 – March 2025</em></p>
                 <p>Built 10+ Power BI dashboards for FAFSA metrics; presented Tableau visualizations to 40+ stakeholders.</p>
+            </div>
+
+            <h4 style="margin-top: 30px;">Leadership</h4>
+
+            <div class="exp-item" style="margin-top: 15px;">
+                <h4>Founding Partner | University Climate Ventures</h4>
+                <p><em>January 2026 – Present</em></p>
+                <p>Co-founded climate-tech venture platform across 4 universities; convened 100+ founders, researchers, and investors, facilitating fundraising and accelerator placements (a16z Speedrun, Keel).</p>
+            </div>
+
+            <div class="exp-item" style="margin-top: 20px;">
+                <h4>Project Lead & VP, Energy Foundry | Hyfin (Stanford Energy Club)</h4>
+                <p><em>January 2026 – Present</em></p>
+                <p>Led largest team advancing Hyfin's climate finance platform targeting $1T in clean energy asset mobilization; drove delivery across 4 global workstreams focused on EV blended-finance programs in SE Asia.</p>
+            </div>
+
+            <div class="exp-item" style="margin-top: 20px;">
+                <h4>Chief Recruitment Officer | Stanford Women in Investing</h4>
+                <p><em>January 2026 – Present</em></p>
+                <p>Recruited 50+ finance professionals (VC, IB, PE) for speaker series and competitions; built speaker/alumni databases and expanded mentorship engagement.</p>
+            </div>
+
+            <div class="exp-item" style="margin-top: 20px;">
+                <h4>Founder | A Sustainable Future</h4>
+                <p><em>January 2023 – January 2026</em></p>
+                <p>Founded data-driven sustainable printing initiative; deployed Paper Consumption Model in 97 schools saving 21M sheets and teaching 98k+ students applied research.</p>
             </div>
 
             <h4 style="margin-top: 30px;">Research</h4>
