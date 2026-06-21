@@ -544,7 +544,7 @@ const cardsData = [
         <p><strong>B.S. Data Science</strong> (Quantitative Finance Track)</p>
         <p><strong>M.S. Management Science & Engineering</strong></p>
         <p><strong>Minor:</strong> Energy Science & Engineering</p>
-        <p><strong>GPA:</strong> 4.056</p>
+        <p><strong>GPA:</strong> 4.065</p>
         <p><em>Go Cardinal!</em></p>
       `
     },
