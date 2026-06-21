@@ -472,7 +472,7 @@ const cardsData = [
     },
 
     { id: 27, title: "university climate ventures", category: "communities", type: "story",
-      image: "images/Photos-3-002/PXL_20250619_181129503.jpg",
+      image: "images/Photos-3-002/PXL_20260512_010844305.jpg",
       content: `
         <p>Co-founded climate-tech venture platform across 4 universities.</p>
         <p>Convened 100+ founders, researchers, and investors, facilitating fundraising and accelerator placements (a16z Speedrun, Keel).</p>
