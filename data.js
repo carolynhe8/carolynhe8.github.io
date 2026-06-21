@@ -435,43 +435,44 @@ const cardsData = [
       `
     },
 
-    { id: 21, title: "peak sustainability ventures", category: "experience", type: "story",
+    { id: 21, title: "peak sustainability ventures", category: "experience", type: "link",
+      link: "https://www.peakventures.in/",
       image: "images/Photos-3-002/peak.jpg",
       content: `
         <p>Investment Analyst Intern evaluating early-stage emerging market investments across energy, water, food, and climate.</p>
         <p>Built sector theses and market maps across 100+ startups and investors.</p>
-        <p><em>Mumbai, India | August – October 2026</em></p>
       `
     },
 
-    { id: 22, title: "wwf nature finance", category: "experience", type: "story",
+    { id: 22, title: "wwf nature finance", category: "experience", type: "link",
+      link: "https://www.worldwildlife.org/our-work/nature-finance/",
       image: "images/Photos-3-002/wwf.jpg",
       content: `
-        <p>Investment Intern executing diligence on early-stage nature-based ventures including Dirigo (seaweed).</p>
-        <p>Supported WWF Impact's mobilization of $100M+ in equity investments across 50 early-stage companies by 2030.</p>
-        <p><em>Washington DC / Hybrid | June 2026 – August 2026</em></p>
+        <p>Investment Intern executing diligence on early-stage nature-based ventures.</p>
+        <p>Supporting mobilization of $100M+ in equity investments across early-stage companies by 2030.</p>
       `
     },
 
-    { id: 23, title: "newlab", category: "experience", type: "story",
+    { id: 23, title: "newlab", category: "experience", type: "link",
+      link: "https://www.newlab.com/",
       image: "images/Photos-3-002/newlab.JPG",
       content: `
-        <p>Data, Product, & Strategy Intern building centralized startup intelligence infrastructure across HubSpot, Airtable, PitchBook, and Harmonic.</p>
+        <p>Data, Product, & Strategy Intern building startup intelligence infrastructure.</p>
         <p>Engineered Python/SQL data models reconciling 800–900 companies for venture strategy.</p>
-        <p><em>New York NY / Hybrid | June 2026 – August 2026</em></p>
       `
     },
 
-    { id: 26, title: "aera vc", category: "experience", type: "story",
+    { id: 26, title: "aera vc", category: "experience", type: "link",
+      link: "https://www.aera.vc/",
       image: "images/Photos-3-002/aera.JPEG",
       content: `
-        <p>Venture Analyst conducting founder diligence for Emerald Battery Labs, Orbital, and Cecilia.</p>
-        <p>Built investment memos, TAM/SAM models, and competitive analyses across $100M resilience, industrial systems, and AI fund.</p>
-        <p><em>Remote | March 2026 – Present</em></p>
+        <p>Venture Analyst conducting founder diligence across resilience, industrial systems, and AI.</p>
+        <p>Built investment memos, TAM/SAM models, and competitive analyses.</p>
       `
     },
 
-    { id: 27, title: "university climate ventures", category: "communities", type: "story",
+    { id: 27, title: "university climate ventures", category: "communities", type: "link",
+      link: "https://www.universityclimateventures.org/home",
       image: "images/Photos-3-002/PXL_20260512_010844305.jpg",
       content: `
         <p>Co-founded climate-tech venture platform across 4 universities.</p>
