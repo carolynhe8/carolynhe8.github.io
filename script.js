@@ -335,23 +335,14 @@ function createCard(cardData, index) {
     // Random color for when activated
     const colorIndex = index % cardColors.length;
 
+    const imageStyle = cardData.image ? `background-image: url('${cardData.image}');` : '';
     card.innerHTML = `
-        <div class="card-image" data-color="${cardColors[colorIndex]}" data-bg="${cardData.image || ''}"></div>
+        <div class="card-image" data-color="${cardColors[colorIndex]}" style="${imageStyle}"></div>
         <div class="card-content">
             <div class="card-title">${cardData.title}</div>
             <div class="card-category">${cardData.category}</div>
         </div>
     `;
-
-    // Lazy-load card image on first hover or touch
-    const imageEl = card.querySelector('.card-image');
-    if (imageEl.dataset.bg) {
-        const loadCardImage = () => {
-            imageEl.style.backgroundImage = `url('${imageEl.dataset.bg}')`;
-        };
-        card.addEventListener('mouseenter', loadCardImage, { once: true });
-        card.addEventListener('touchstart', loadCardImage, { once: true, passive: true });
-    }
 
     // Drag events
     card.addEventListener('dragstart', handleDragStart);
